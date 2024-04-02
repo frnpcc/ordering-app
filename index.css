@@ -4,6 +4,11 @@ body {
     font-family: "Smythe", system-ui;
 }
 
+.container {
+  width: 508px;
+  margin: 0 auto;
+}
+
 h1, h2 {
   color: #FFFFFF;
 }
@@ -12,7 +17,7 @@ header {
   background-image: url(/images/header.png);
   background-size: cover;
   background-position: center;
-  padding: 20px;
+  padding: 20px 0;
   margin-bottom: 67px;
 }
 
@@ -21,7 +26,6 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #D2D2D2;
-  margin: 0 46px;
   padding-bottom: 51px;
 }
 
@@ -55,4 +59,13 @@ header {
 .item-info p {
   color: #8B8B8B;
   margin: 0 0 8px 0;
+}
+
+.order-info, .order-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-info {
+  border-bottom: 1px solid grey;
 }
