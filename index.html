@@ -6,11 +6,30 @@
     </head>
     <body>
       <header>
-        <h1>Jimmy's Diner</h1>
-        <h2>The best burgers and pizzas in town.</h2>
+        <div class="container">
+          <h1>Jimmy's Diner</h1>
+          <h2>The best burgers and pizzas in town.</h2>
+        </div>
       </header>
       <main>
-        <section class="items-container" id="items-container"></section>
+        <section class="container" id="items-container"></section>
+        <section class="container">
+          <h3>Your order</h3>
+          <div class="order-info">
+            <div class="order-items-names">
+              <p>Pizza</p>
+              <p>Beer</p>
+            </div>
+            <div class="order-items-prices">
+              <p>$13</p>
+              <p>$12</p>
+          </div>
+          </div>
+          <div class="order-total">
+            <p>Total price:</p>
+            <p>$26</p>
+          </div>
+        </section>
       </main>
 	    <script src="index.js" type="module"></script>
     </body>
