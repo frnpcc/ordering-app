@@ -1,6 +1,9 @@
 import menuArray from "/data.js"
 
-
+const orderDetailsEl = document.getElementById('order-details')
+const orderDetailsArr = []
+const itemsPrices = []
+const orderTotalEl = document.getElementById('order-total')
 
 function getItemsHtml() {
   return menuArray.map(menu => {
@@ -15,14 +18,55 @@ function getItemsHtml() {
           <span class="item-price">$${price}</span>
         </div>
       </div>
-      <span class="add-btn" id="add-btn">+</span>
+      <button class="add-btn" id="add-btn" data-add=${id}>+</button>
     </div>`
   }).join('')
 }
 
-function render() {
+function renderItemsList() {
   const itemsContainer = document.getElementById('items-container')
   itemsContainer.innerHTML = getItemsHtml()
 }
 
-render()
+renderItemsList()
+
+const selectItemBtn = document.getElementById('add-btn')
+
+document.addEventListener('click', function(e){
+  if (e.target.dataset.add){
+    //console.log(getSelectedItem(Number(e.target.dataset.add)))
+    getSelectedItem(Number(e.target.dataset.add))
+  }
+})
+
+function getSelectedItem(itemId){
+  const selectedItemObj = menuArray.filter( menuItem => menuItem.id === itemId )[0]
+  orderDetailsArr.push(selectedItemObj)
+  itemsPrices.push(selectedItemObj.price)
+  getOrderDetailsHtml(orderDetailsArr)
+  orderTotal(itemsPrices)
+}
+
+function getOrderDetailsHtml(array) {
+
+  const orderDetailsHtml = array.map(function(item){
+    return `
+    <div class="item-details">
+      <p>${item.name}</p>
+      <p>$${item.price}</p>
+    </div>`
+  }).join('')
+
+  renderOrderDetails(orderDetailsHtml)
+}
+
+function renderOrderDetails(html){
+  orderDetailsEl.innerHTML = html
+}
+
+function orderTotal(array){
+  const orderTotal = array.reduce(function(total, current){
+    return total + current
+  }, 0)
+  orderTotalEl.textContent = '$' + orderTotal
+}
