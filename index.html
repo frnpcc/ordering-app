@@ -13,6 +13,9 @@
       </header>
       <main>
         <section class="container" id="items-container"></section>
+        <div class="order-completed-msg container">
+          <p>Thanks, James! Your order is on its way!</p>
+        </div>
         <section class="container">
           <h3>Your order</h3>
           <div class="order-info">
@@ -29,8 +32,20 @@
             <p>Total price:</p>
             <p>$26</p>
           </div>
+          <button class="order-btn">Complete order</button>
         </section>
       </main>
+      <div class="card-details-modal">
+        <div class="card-details-modal-inner">
+          <h3>Enter card details</h3>
+          <form>
+            <input type="text" placeholder="Enter your name">
+            <input type="number" placeholder="Enter card number">
+            <input type="number" placeholder="Enter CVV">
+            <button class="btn-pay">Pay</button>
+          </form>
+        </div>
+      </div>
 	    <script src="index.js" type="module"></script>
     </body>
 </html>
