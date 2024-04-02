@@ -54,6 +54,7 @@ header {
   border-radius: 50%;
   color: #3C3C3C;
   padding: 0px 8px;
+  background: none;
 }
 
 .item-info p {
@@ -68,4 +69,71 @@ header {
 
 .order-info {
   border-bottom: 1px solid grey;
+}
+
+.card-details-modal {
+  background-color: #FFFFFF;
+  display: none;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 524px;
+  height: 542.24px;
+  border: 1.3px solid #757575;
+  border-radius: 3.89px;
+  box-shadow: 5.19px 5.19px 255.44px rgba(0, 0, 0, 0.5);
+}
+
+.card-details-modal-inner {
+  width: 475.91px;
+  margin: auto;
+}
+
+input {
+  width: 100%;
+  padding: 26.53px;
+  margin-bottom: 23px;
+  font-family: verdana;
+  border: 1.3px solid #757575;
+  border-radius: 3.89px;
+}
+
+.card-details-modal-inner h3 {
+  margin: 47.32px 0 46.08px 0;
+  font-family: verdana;
+  font-size: 24px;
+  text-align: center;
+}
+
+.btn-pay {
+  font-family: verdana;
+  font-size: 20px;
+  background: #16DB99;
+  border: none;
+  width: 100%;
+  padding: 26px 0;
+  border-radius: 3.89px;
+  margin-top: 23.44px;
+}
+
+.order-btn {
+  width: 100%;
+  background: #16DB99;
+  border: none;
+  padding: 18px 0;
+  font-family: verdana;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.order-completed-msg {
+  display: none;
+  font-size: 32px;
+  padding: 51px 59px;
+  background: #ECFDF5;
+  color: #065F46;
 }
