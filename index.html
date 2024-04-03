@@ -1,42 +1,65 @@
-<html>
-    <head>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-      <link rel="stylesheet" href="index.css">
-      <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
-    </head>
-    <body>
-      <header>
-        <div class="container">
-          <h1>Jimmy's Diner</h1>
-          <h2>The best burgers and pizzas in town.</h2>
-        </div>
-      </header>
-      <main>
-        <section class="container" id="items-container"></section>
-        <div id="completed-msg" class="container order-completed-msg">
-          <p>Thanks, James! Your order is on its way!</p>
-        </div>
-        <section id="order-section" class="container">
-          <h3>Your order</h3>
-          <div class="order-info" id="order-details"></div>
-          <div class="order-total">
-            <p>Total price:</p>
-            <span class="order-item-price" id="order-total">$0</span>
-          </div>
-          <button id="order-btn" class="order-btn">Complete order</button>
-        </section>
-      </main>
-      <div id="payment-modal" class="card-details-modal">
-        <div class="card-details-modal-inner">
-          <h3>Enter card details</h3>
-          <form>
-            <input type="text" placeholder="Enter your name" required>
-            <input type="number" placeholder="Enter card number" required>
-            <input type="number" placeholder="Enter CVV" required>
-            <button id="pay-btn" class="btn-pay">Pay</button>
-          </form>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Jimmy's Diner</h1>
+        <h2>The best burgers and pizzas in town.</h2>
       </div>
-	    <script src="index.js" type="module"></script>
-    </body>
+    </header>
+    <main>
+      <section class="container" id="items-container"></section>
+      <div id="completed-msg" class="container order-completed-msg">
+        <p>Thanks, James! Your order is on its way!</p>
+      </div>
+      <section id="order-section" class="container">
+        <h3>Your order</h3>
+        <div class="order-info" id="order-details"></div>
+        <div class="order-total">
+          <p>Total price:</p>
+          <span class="order-item-price" id="order-total">$0</span>
+        </div>
+        <button id="order-btn" class="order-btn">Complete order</button>
+      </section>
+    </main>
+    <div id="payment-modal" class="card-details-modal">
+      <div class="card-details-modal-inner">
+        <h3>Enter card details</h3>
+        <form id="payment-form">
+          <input
+          required
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          pattern="[a-zA-Z]+"
+          >
+          <input
+          required
+          type="number"
+          name="card-number"
+          placeholder="Enter card number"
+          minlength="16"
+          maxlength="16"
+          inputmode="numeric"
+          >
+          <input
+          required
+          type="number"
+          name="cvv-number"
+          placeholder="Enter CVV"
+          minlength="3"
+          maxlength="3"
+          inputmode="numeric"
+          >
+          <button id="pay-btn" class="btn-pay">Pay</button>
+        </form>
+      </div>
+    </div>
+    <script src="index.js" type="module"></script>
+  </body>
 </html>
