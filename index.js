@@ -41,8 +41,8 @@ document.addEventListener('click', function(e){
     renderPaymentModal()
   } else if(e.target.id === 'pay-btn'){
     renderOrderCompletedMsg(e)
-  } else if (e.target.id === 'remove-item'){
-    removeSelectedItem(e.target.id)
+  } else if (e.target.dataset.remove){
+    removeSelectedItem(Number(e.target.dataset.remove))
   }
 })
 
@@ -59,7 +59,7 @@ function getOrderDetailsHtml(array) {
   const orderDetailsHtml = array.map(function(item){
     return `
     <div class="item-details">
-      <p>${item.name} <span class='remove-order-item' id="remove-item">remove</span></p>
+      <p>${item.name} <span class='remove-order-item' id="remove-item" data-remove='${item.id}'>remove</span></p>
       <span class='order-item-price'>$${item.price}</span>
     </div>`
   }).join('')
@@ -92,5 +92,8 @@ function renderOrderCompletedMsg(e) {
 }
 
 function removeSelectedItem(itemId){
-  console.log(itemId)
+  const selectedItem = menuArray.filter( menuItem => menuItem.id === itemId)[0]
+  const itemIndex = orderDetailsArr.indexOf(selectedItem)
+  orderDetailsArr.splice(itemIndex, 1)
+  getOrderDetailsHtml(orderDetailsArr)
 }
