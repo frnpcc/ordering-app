@@ -4,10 +4,7 @@ body {
     font-family: "Smythe", system-ui;
 }
 
-.container {
-  width: 508px;
-  margin: 0 auto;
-}
+/*typography*/
 
 h1, h2 {
   color: #FFFFFF;
@@ -40,12 +37,11 @@ header h2{
   margin: 12px 0 0 0;
 }
 
-.remove-order-item{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 12px;
-  padding: 0 12px;
-  color: #BBBBBB;
-  cursor: pointer;
+/* layout */
+
+.container {
+  width: 508px;
+  margin: 0 auto;
 }
 
 header {
@@ -83,18 +79,6 @@ header {
   font-size: 20px;
 }
 
-.add-btn {
-  font-size: 25px;
-  font-family: system-ui;
-  font-weight: 100;
-  border: 1.5px solid #DEDEDE;
-  border-radius: 50%;
-  color: #3C3C3C;
-  padding: 0 10px 5px 10px;
-  background: none;
-  cursor: pointer;
-}
-
 .item-info p {
   color: #8B8B8B;
   margin: 0 0 8px 0;
@@ -110,6 +94,43 @@ header {
   border-bottom: 1px solid grey;
   padding-bottom: 31px;
 }
+
+/* controls */
+
+.add-btn {
+  font-size: 25px;
+  font-family: system-ui;
+  font-weight: 100;
+  border: 1.5px solid #DEDEDE;
+  border-radius: 50%;
+  color: #3C3C3C;
+  padding: 0 10px 5px 10px;
+  background: none;
+  cursor: pointer;
+}
+
+.remove-order-item{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 0 12px;
+  color: #BBBBBB;
+  cursor: pointer;
+}
+
+.order-btn {
+  width: 100%;
+  background: #16DB99;
+  border: none;
+  padding: 18px 0;
+  font-family: verdana;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 28px 0;
+}
+
+/* modal */
 
 .card-details-modal {
   background-color: #FFFFFF;
@@ -132,24 +153,28 @@ header {
   margin: auto;
 }
 
-input {
-  width: 88%;
-  padding: 26.53px;
-  margin-bottom: 23px;
-  font-family: verdana;
-  border: 1.3px solid #757575;
-  border-radius: 3.89px;
-}
-
 .card-details-modal-inner h3 {
   margin: 47.32px 0 46.08px 0;
-  font-family: verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 24px;
   text-align: center;
 }
 
+/* modal input */
+
+input {
+  width: 88%;
+  padding: 26.53px;
+  margin-bottom: 23px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: 1.3px solid #757575;
+  border-radius: 3.89px;
+}
+
+/* modal btn */
+
 .btn-pay {
-  font-family: verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
   font-weight: 600;
   color:white;
@@ -162,23 +187,15 @@ input {
   cursor: pointer;
 }
 
-.order-btn {
-  width: 100%;
-  background: #16DB99;
-  border: none;
-  padding: 18px 0;
-  font-family: verdana;
-  color: white;
-  font-weight: 600;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 28px 0;
-}
+/* modal after submit */
 
 .order-completed-msg {
   display: none;
   font-size: 32px;
-  padding: 51px 59px;
+  padding: 10px 0;
   background: #ECFDF5;
   color: #065F46;
+  width: 504px;
+  margin: 45px auto 0 auto;
+  text-align: center;
 }
