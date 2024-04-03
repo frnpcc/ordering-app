@@ -13,27 +13,27 @@
       </header>
       <main>
         <section class="container" id="items-container"></section>
-        <div class="order-completed-msg container">
+        <div id="completed-msg" class="container order-completed-msg">
           <p>Thanks, James! Your order is on its way!</p>
         </div>
-        <section class="container">
+        <section id="order-section" class="container">
           <h3>Your order</h3>
           <div class="order-info" id="order-details"></div>
           <div class="order-total">
             <p>Total price:</p>
             <span id="order-total">$0</span>
           </div>
-          <button class="order-btn">Complete order</button>
+          <button id="order-btn" class="order-btn">Complete order</button>
         </section>
       </main>
-      <div class="card-details-modal">
+      <div id="payment-modal" class="card-details-modal">
         <div class="card-details-modal-inner">
           <h3>Enter card details</h3>
           <form>
-            <input type="text" placeholder="Enter your name">
-            <input type="number" placeholder="Enter card number">
-            <input type="number" placeholder="Enter CVV">
-            <button class="btn-pay">Pay</button>
+            <input type="text" placeholder="Enter your name" required>
+            <input type="number" placeholder="Enter card number" required>
+            <input type="number" placeholder="Enter CVV" required>
+            <button id="pay-btn" class="btn-pay">Pay</button>
           </form>
         </div>
       </div>
