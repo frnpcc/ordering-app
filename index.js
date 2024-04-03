@@ -1,11 +1,9 @@
 import menuArray from "/data.js"
 
-// const orderBtn = document.getElementById('order-btn')
-// const selectItemBtn = document.getElementById('add-btn')
 const orderDetailsEl = document.getElementById('order-details')
 const orderTotalEl = document.getElementById('order-total')
 const paymentModal = document.getElementById('payment-modal')
-const payBtn = document.getElementById('pay-btn')
+const paymentForm = document.getElementById('payment-form')
 const orderDetailsArr = []
 const itemsPrices = []
 
@@ -14,11 +12,17 @@ document.addEventListener('click', function(e){
     getSelectedItem(Number(e.target.dataset.add))
   } else if (e.target.id === 'order-btn'){
     renderPaymentModal()
-  } else if(e.target.id === 'pay-btn'){
-    renderOrderCompletedMsg(e)
   } else if (e.target.dataset.remove){
     removeSelectedItem(Number(e.target.dataset.remove))
   }
+})
+
+paymentForm.addEventListener('submit', function(e) {
+  e.preventDefault()
+  paymentModal.style.display = 'none'
+  orderTotalEl.style.display = 'none'
+  document.getElementById('order-section').style.display = 'none'
+  document.getElementById('completed-msg').style.display = 'block'
 })
 
 function getItemsHtml() {
@@ -82,15 +86,6 @@ function renderPaymentModal() {
   if (orderDetailsArr.length > 0){
     paymentModal.style.display = 'inline'
   }
-}
-
-function renderOrderCompletedMsg(e) {
-  e.preventDefault()
-  paymentModal.style.display = 'none'
-  orderTotalEl.style.display = 'none'
-  document.getElementById('order-section').style.display = 'none'
-  document.getElementById('completed-msg').style.display = 'block'
-
 }
 
 function removeSelectedItem(itemId){
