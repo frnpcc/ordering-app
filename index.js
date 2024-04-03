@@ -1,11 +1,25 @@
 import menuArray from "/data.js"
 
+// const orderBtn = document.getElementById('order-btn')
+// const selectItemBtn = document.getElementById('add-btn')
 const orderDetailsEl = document.getElementById('order-details')
+const orderTotalEl = document.getElementById('order-total')
+const paymentModal = document.getElementById('payment-modal')
+const payBtn = document.getElementById('pay-btn')
 const orderDetailsArr = []
 const itemsPrices = []
-const orderTotalEl = document.getElementById('order-total')
-const orderBtn = document.getElementById('order-btn')
-const paymentModal = document.getElementById('payment-modal')
+
+document.addEventListener('click', function(e){
+  if (e.target.dataset.add){
+    getSelectedItem(Number(e.target.dataset.add))
+  } else if (e.target.id === 'order-btn'){
+    renderPaymentModal()
+  } else if(e.target.id === 'pay-btn'){
+    renderOrderCompletedMsg(e)
+  } else if (e.target.dataset.remove){
+    removeSelectedItem(Number(e.target.dataset.remove))
+  }
+})
 
 function getItemsHtml() {
   return menuArray.map(menu => {
@@ -31,20 +45,6 @@ function renderItemsList() {
 }
 
 renderItemsList()
-
-const selectItemBtn = document.getElementById('add-btn')
-
-document.addEventListener('click', function(e){
-  if (e.target.dataset.add){
-    getSelectedItem(Number(e.target.dataset.add))
-  } else if (e.target.id === 'order-btn'){
-    renderPaymentModal()
-  } else if(e.target.id === 'pay-btn'){
-    renderOrderCompletedMsg(e)
-  } else if (e.target.dataset.remove){
-    removeSelectedItem(Number(e.target.dataset.remove))
-  }
-})
 
 function getSelectedItem(itemId){
   const selectedItemObj = menuArray.filter( menuItem => menuItem.id === itemId )[0]
@@ -79,7 +79,9 @@ function orderTotal(array){
 }
 
 function renderPaymentModal() {
-  paymentModal.style.display = 'inline'
+  if (orderDetailsArr.length > 0){
+    paymentModal.style.display = 'inline'
+  }
 }
 
 function renderOrderCompletedMsg(e) {
@@ -94,6 +96,9 @@ function renderOrderCompletedMsg(e) {
 function removeSelectedItem(itemId){
   const selectedItem = menuArray.filter( menuItem => menuItem.id === itemId)[0]
   const itemIndex = orderDetailsArr.indexOf(selectedItem)
+  const itemPriceIndex = itemsPrices.indexOf(selectedItem.price)
   orderDetailsArr.splice(itemIndex, 1)
+  itemsPrices.splice(itemPriceIndex, 1)
   getOrderDetailsHtml(orderDetailsArr)
+  orderTotal(itemsPrices)
 }
