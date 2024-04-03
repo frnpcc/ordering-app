@@ -4,6 +4,8 @@ const orderDetailsEl = document.getElementById('order-details')
 const orderDetailsArr = []
 const itemsPrices = []
 const orderTotalEl = document.getElementById('order-total')
+const orderBtn = document.getElementById('order-btn')
+const paymentModal = document.getElementById('payment-modal')
 
 function getItemsHtml() {
   return menuArray.map(menu => {
@@ -34,8 +36,13 @@ const selectItemBtn = document.getElementById('add-btn')
 
 document.addEventListener('click', function(e){
   if (e.target.dataset.add){
-    //console.log(getSelectedItem(Number(e.target.dataset.add)))
     getSelectedItem(Number(e.target.dataset.add))
+  } else if (e.target.id === 'order-btn'){
+    renderPaymentModal()
+  } else if(e.target.id === 'pay-btn'){
+    renderOrderCompletedMsg(e)
+  } else if (e.target.id === 'remove-item'){
+    removeSelectedItem(e.target.id)
   }
 })
 
@@ -52,7 +59,7 @@ function getOrderDetailsHtml(array) {
   const orderDetailsHtml = array.map(function(item){
     return `
     <div class="item-details">
-      <p>${item.name}</p>
+      <p>${item.name} <span id="remove-item">remove</span></p>
       <p>$${item.price}</p>
     </div>`
   }).join('')
@@ -69,4 +76,21 @@ function orderTotal(array){
     return total + current
   }, 0)
   orderTotalEl.textContent = '$' + orderTotal
+}
+
+function renderPaymentModal() {
+  paymentModal.style.display = 'inline'
+}
+
+function renderOrderCompletedMsg(e) {
+  e.preventDefault()
+  paymentModal.style.display = 'none'
+  orderTotalEl.style.display = 'none'
+  document.getElementById('order-section').style.display = 'none'
+  document.getElementById('completed-msg').style.display = 'block'
+
+}
+
+function removeSelectedItem(itemId){
+  console.log(itemId)
 }
