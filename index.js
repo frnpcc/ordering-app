@@ -59,8 +59,8 @@ function getOrderDetailsHtml(array) {
   const orderDetailsHtml = array.map(function(item){
     return `
     <div class="item-details">
-      <p>${item.name} <span id="remove-item">remove</span></p>
-      <p>$${item.price}</p>
+      <p>${item.name} <span class='remove-order-item' id="remove-item">remove</span></p>
+      <span class='order-item-price'>$${item.price}</span>
     </div>`
   }).join('')
 

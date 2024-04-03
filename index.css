@@ -11,14 +11,49 @@ body {
 
 h1, h2 {
   color: #FFFFFF;
+  margin: 0;
+}
+
+header h1{
+  font-size: 39px;
+}
+
+header h2{
+  font-size: 22.42px;
+}
+
+#order-section h3{
+  text-align: center;
+  margin: 45px 0;
+}
+
+#order-section p, h3 {
+  font-size: 28px;
+}
+
+.order-item-price {
+  font-size: 20px;
+  padding-top: 12px;
+}
+
+#order-section p{
+  margin: 12px 0 0 0;
+}
+
+.remove-order-item{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 0 12px;
+  color: #BBBBBB;
+  cursor: pointer;
 }
 
 header {
   background-image: url(/images/header.png);
   background-size: cover;
   background-position: center;
-  padding: 20px 0;
-  margin-bottom: 67px;
+  padding: 56px 0;
+  margin-bottom: 22px;
 }
 
 .item-card {
@@ -26,7 +61,7 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #D2D2D2;
-  padding-bottom: 51px;
+  padding: 51px 0 45px 0;
 }
 
 .item-first {
@@ -36,6 +71,7 @@ header {
 
 .item-icon {
   font-size: 78px;
+  margin-right: 20px;
 }
 
 .item-name {
@@ -48,13 +84,15 @@ header {
 }
 
 .add-btn {
-  font-size: 32px;
-  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+  font-family: system-ui;
+  font-weight: 100;
   border: 1.5px solid #DEDEDE;
   border-radius: 50%;
   color: #3C3C3C;
-  padding: 0px 8px;
+  padding: 0 10px 5px 10px;
   background: none;
+  cursor: pointer;
 }
 
 .item-info p {
@@ -65,10 +103,12 @@ header {
 .item-details, .order-total {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .order-info {
   border-bottom: 1px solid grey;
+  padding-bottom: 31px;
 }
 
 .card-details-modal {
@@ -111,12 +151,15 @@ input {
 .btn-pay {
   font-family: verdana;
   font-size: 20px;
+  font-weight: 600;
+  color:white;
   background: #16DB99;
   border: none;
   width: 100%;
   padding: 26px 0;
   border-radius: 3.89px;
   margin-top: 23.44px;
+  cursor: pointer;
 }
 
 .order-btn {
@@ -128,6 +171,8 @@ input {
   color: white;
   font-weight: 600;
   border-radius: 3px;
+  cursor: pointer;
+  margin: 28px 0;
 }
 
 .order-completed-msg {
