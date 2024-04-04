@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     width: 600px;
     margin: 0 auto;
@@ -9,6 +13,10 @@ body {
 h1, h2 {
   color: #FFFFFF;
   margin: 0;
+}
+
+h1, h2, h3, p {
+  font-weight: 100;
 }
 
 header h1{
@@ -24,50 +32,17 @@ header h2{
   margin: 45px 0;
 }
 
-#order-section p, h3 {
+#order-section p, #order-section h3 {
   font-size: 28px;
 }
 
-.order-item-price {
+.total-price {
   font-size: 20px;
   padding-top: 12px;
 }
 
 #order-section p{
   margin: 12px 0 0 0;
-}
-
-/* layout */
-
-.container {
-  width: 508px;
-  margin: 0 auto;
-}
-
-header {
-  background-image: url(/images/header.png);
-  background-size: cover;
-  background-position: center;
-  padding: 56px 0;
-  margin-bottom: 22px;
-}
-
-.item-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #D2D2D2;
-  padding: 51px 0 45px 0;
-}
-
-.item-first {
-  display: flex;
-  align-items: center;
-}
-
-.item-icon {
-  font-size: 78px;
-  margin-right: 20px;
 }
 
 .item-name {
@@ -84,18 +59,73 @@ header {
   margin: 0 0 8px 0;
 }
 
-.item-details, .order-total {
+/* layout */
+
+.container {
+  width: 508px;
+  margin: 0 auto;
+}
+
+header {
+  background-image: url(/images/header.png);
+  background-size: cover;
+  background-position: center;
+  padding: 46px 0;
+  margin-bottom: 22px;
+  height: 167px;
+}
+
+.item-card,
+.item-first,
+.item-details,
+.order-total {
   display: flex;
+}
+
+.item-card {
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #D2D2D2;
+  padding-bottom: 25px;
+  margin-top: 45px;
+}
+
+.item-first {
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.item-details, .order-total {
   justify-content: space-between;
   align-items: center;
 }
 
-.order-info {
-  border-bottom: 1px solid grey;
+.item-icon {
+  font-size: 78px;
+  margin-right: 20px;
+}
+
+.order-details {
+  border-bottom: 2px solid #393333;;
   padding-bottom: 31px;
 }
 
-/* controls */
+.order-complete-msg {
+  display: none;
+  font-size: 32px;
+  padding: 10px 0;
+  background: #ECFDF5;
+  color: #065F46;
+  width: 504px;
+  margin: 45px auto;
+  text-align: center;
+}
+
+/* buttons */
+
+.add-btn, .remove-order-item {
+  cursor: pointer;
+}
 
 .add-btn {
   font-size: 25px;
@@ -104,9 +134,11 @@ header {
   border: 1.5px solid #DEDEDE;
   border-radius: 50%;
   color: #3C3C3C;
-  padding: 0 10px 5px 10px;
   background: none;
-  cursor: pointer;
+  padding: 0 0 4px 0px;
+  width: 50px;
+  height: 50px;
+  margin-top: 8px;
 }
 
 .remove-order-item{
@@ -114,25 +146,34 @@ header {
   font-size: 12px;
   padding: 0 12px;
   color: #BBBBBB;
-  cursor: pointer;
 }
 
-.order-btn {
+.btn {
   width: 100%;
   background: #16DB99;
   border: none;
-  padding: 18px 0;
-  font-family: verdana;
-  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
-  border-radius: 3px;
   cursor: pointer;
+  color: white;
+}
+
+.btn-order {
+  padding: 21px 0;
+  border-radius: 3px;
   margin: 28px 0;
+}
+
+.btn-pay {
+  font-size: 20px;
+  padding: 26px 0;
+  border-radius: 3.89px;
+  margin-top: 23.44px;
 }
 
 /* modal */
 
-.card-details-modal {
+.payment-modal {
   background-color: #FFFFFF;
   display: none;
   position: fixed;
@@ -143,59 +184,29 @@ header {
   right: 0;
   width: 524px;
   height: 542.24px;
-  border: 1.3px solid #757575;
   border-radius: 3.89px;
   box-shadow: 5.19px 5.19px 255.44px rgba(0, 0, 0, 0.5);
 }
 
-.card-details-modal-inner {
+form {
   width: 475.91px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-.card-details-modal-inner h3 {
+.payment-modal h3 {
   margin: 47.32px 0 46.08px 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 24px;
   text-align: center;
+  font-weight: bold;
 }
 
-/* modal input */
-
 input {
-  width: 88%;
+  width: 100%;
   padding: 26.53px;
   margin-bottom: 23px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: 1.3px solid #757575;
   border-radius: 3.89px;
-}
-
-/* modal btn */
-
-.btn-pay {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
-  font-weight: 600;
-  color:white;
-  background: #16DB99;
-  border: none;
-  width: 100%;
-  padding: 26px 0;
-  border-radius: 3.89px;
-  margin-top: 23.44px;
-  cursor: pointer;
-}
-
-/* modal after submit */
-
-.order-completed-msg {
-  display: none;
-  font-size: 32px;
-  padding: 10px 0;
-  background: #ECFDF5;
-  color: #065F46;
-  width: 504px;
-  margin: 45px auto 0 auto;
-  text-align: center;
 }
