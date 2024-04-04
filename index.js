@@ -20,9 +20,16 @@ paymentForm.addEventListener('submit', function(e) {
 
   e.preventDefault()
 
+  const orderCompleteMsgEl = document.getElementById('order-complete-msg')
+  const orderSectionEl = document.getElementById('order-section')
+  const paymentFormData = new FormData(paymentForm)
+  const name = paymentFormData.get('name')
+
   paymentModal.style.display = 'none'
-  document.getElementById('order-section').style.display = 'none'
-  document.getElementById('completed-msg').style.display = 'block'
+  orderSectionEl.style.display = 'none'
+  orderCompleteMsgEl.style.display = 'block'
+
+  orderCompleteMsgEl.innerHTML = `<p>Thanks, ${name}! Your order is on its way!</p>`
 })
 
 function getSelectedItem(itemId){
@@ -33,7 +40,7 @@ function getSelectedItem(itemId){
   itemsPrices.push(selectedItemObj.price)
 
   getOrderDetailsHtml(orderDetailsArr)
-  orderTotal(itemsPrices)
+  getOrderTotal(itemsPrices)
 }
 
 function renderPaymentModal() {
@@ -53,7 +60,7 @@ function removeSelectedItem(itemId){
   itemsPrices.splice(itemPriceIndex, 1)
 
   getOrderDetailsHtml(orderDetailsArr)
-  orderTotal(itemsPrices)
+  getOrderTotal(itemsPrices)
 }
 
 function getItemsHtml() {
@@ -106,9 +113,9 @@ function renderOrderDetails(html){
   document.getElementById('order-details').innerHTML = html
 }
 
-function orderTotal(array){
+function getOrderTotal(array){
 
-  const orderTotal = array.reduce( (total, current) => total + current, 0)
+  const getOrderTotal = array.reduce( (total, current) => total + current, 0)
 
-  document.getElementById('order-total').textContent = '$' + orderTotal
+  document.getElementById('order-total').textContent = '$' + getOrderTotal
 }
