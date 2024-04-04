@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
@@ -14,21 +15,18 @@
     </header>
     <main>
       <section class="container" id="items-container"></section>
-      <div id="completed-msg" class="order-completed-msg">
-        <p>Thanks, James! Your order is on its way!</p>
-      </div>
+      <div id="order-complete-msg" class="order-complete-msg"></div>
       <section id="order-section" class="container">
         <h3>Your order</h3>
-        <div class="order-info" id="order-details"></div>
+        <div class="order-details" id="order-details"></div>
         <div class="order-total">
           <p>Total price:</p>
-          <span class="order-item-price" id="order-total">$0</span>
+          <span class="total-price" id="order-total">$0</span>
         </div>
-        <button id="order-btn" class="order-btn">Complete order</button>
+        <button id="order-btn" class="btn btn-order">Complete order</button>
       </section>
     </main>
-    <div id="payment-modal" class="card-details-modal">
-      <div class="card-details-modal-inner">
+    <div id="payment-modal" class="payment-modal">
         <h3>Enter card details</h3>
         <form id="payment-form">
           <input
@@ -56,9 +54,8 @@
           maxlength="3"
           inputmode="numeric"
           >
-          <button id="pay-btn" class="btn-pay">Pay</button>
+          <button id="pay-btn" class="btn btn-pay">Pay</button>
         </form>
-      </div>
     </div>
     <script src="index.js" type="module"></script>
   </body>
